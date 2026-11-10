@@ -1,0 +1,4 @@
+# Launchers: bash cannot run a CRLF script and cmd.exe misreads an LF batch file,
+# so pin both regardless of the cloning machine's core.autocrlf.
+*.sh text eol=lf
+*.bat text eol=crlf
