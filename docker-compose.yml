@@ -1,0 +1,31 @@
+---
+services:
+  backend:
+    build:
+      context: ./backend
+    x-preview-port: 8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/dev.env
+    environment:
+      DATABASE_URL: sqlite:////data/app.db
+      DEBUG: "false"
+      SEED_ON_START: "true"
+      CORS_ORIGINS: http://localhost
+    volumes:
+      - app-data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        BACKEND_HOST: backend
+    x-preview-port: 80
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  app-data:

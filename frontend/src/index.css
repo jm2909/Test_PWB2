@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cds-background: #ffffff;
+  --cds-layer-01: #f4f4f4;
+  --cds-field-01: #f4f4f4;
+  --cds-border-subtle-01: #e0e0e0;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-text-primary: #161616;
+  --cds-text-secondary: #525252;
+  --cds-text-helper: #6f6f6f;
+  --cds-text-error: #da1e28;
+  --cds-link-primary: #0f62fe;
+  --cds-button-primary: #0f62fe;
+  --cds-support-error: #da1e28;
+  --cds-support-success: #198038;
+  --cds-support-warning: #f1c21b;
+  --cds-support-info: #0043ce;
+  --cds-notification-error-background-color: #fff1f1;
+  --cds-notification-success-background-color: #defbe6;
+  --cds-notification-warning-background-color: #fcf4d6;
+  --cds-notification-info-background-color: #edf5ff;
+  --cds-focus: #0f62fe;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--cds-background);
+    color: var(--cds-text-primary);
+    font: 400 0.875rem/1.25rem 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.16px;
+  }
+  h1, h2, h3, p, ul, ol { margin: 0; }
+  ul, ol { padding: 0; list-style: none; }
+  a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid var(--cds-focus);
+    outline-offset: -2px;
+  }
+}
+
+.skip { position: absolute; left: -9999px; top: 0; }
+.skip:focus { left: 0; z-index: 9; background: #fff; color: #161616; padding: 12px 16px; }
