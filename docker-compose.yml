@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/dev.env
+    environment:
+      DATABASE_URL: sqlite:////data/app.db
+    volumes:
+      - backend-data:/data
+    ports:
+      - "9000:9000"
+    x-preview-port: 9000
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        BACKEND_HOST: backend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    x-preview-port: 80
+
+volumes:
+  backend-data:
